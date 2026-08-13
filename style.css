@@ -40,25 +40,37 @@ body {
 }
 
 .nav-item {
+	position: relative;
 	width: 70px;
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: #000;
+	color: #fff;
 	text-decoration: none;
 	font-size: 25px;
-	transition: background-color 0.2s ease;
 }
 
-.nav-item span {
-	display: block;
-	transition: filter 0.2s ease, transform 0.2s ease;
+.nav-emoji,
+.nav-label {
+	position: absolute;
+	transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.nav-item:hover span {
-	filter: grayscale(1) brightness(0) invert(1);
-	transform: scale(1.08);
+.nav-label {
+	opacity: 0;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+}
+
+.nav-item:hover .nav-emoji {
+	opacity: 0;
+	transform: scale(0.8);
+}
+
+.nav-item:hover .nav-label {
+	opacity: 1;
 }
 
 .nav-about:hover {
