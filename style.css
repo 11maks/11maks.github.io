@@ -13,9 +13,19 @@ body {
 body {
     background: white;
     color: black;
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
     overflow: hidden;
 }
+
 
 
 /* =========================
@@ -33,17 +43,22 @@ body {
     background: white;
 
     z-index: 100;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .navigation {
-    width: 100%;
+    width: 30%;
+    min-width: 180px;
+    max-width: 320px;
     height: 100%;
+
+    margin: 0 auto;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    padding: 0 32px;
 }
 
 .nav-item {
@@ -76,9 +91,19 @@ body {
 }
 
 .desktop-label {
-    display: none;
-}
+    display: block;
 
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Text",
+        "Helvetica Neue",
+        sans-serif;
+
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
 
 /* =========================
    LANDING
@@ -205,3 +230,12 @@ body {
     }
 
 }
+
+font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "SF Pro Text",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
