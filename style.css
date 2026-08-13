@@ -25,7 +25,9 @@ body {
 	height: 72px;
 	background: #fff;
 	z-index: 100;
-	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+	box-shadow:
+		0 -12px 25px rgba(0, 0, 0, 0.035),
+		0 10px 25px rgba(0, 0, 0, 0.10);
 }
 
 .navigation {
@@ -36,12 +38,12 @@ body {
 	margin: 0 auto;
 	display: flex;
 	align-items: stretch;
-	justify-content: space-between;
+	justify-content: center;
 }
 
 .nav-item {
 	position: relative;
-	width: 70px;
+	flex: 1;
 	height: 100%;
 	display: flex;
 	align-items: center;
@@ -49,17 +51,50 @@ body {
 	color: #fff;
 	text-decoration: none;
 	font-size: 25px;
+	overflow: hidden;
+}
+
+.nav-item::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	transition: opacity 0.25s ease;
+	z-index: 0;
+}
+
+.nav-item:hover::before {
+	opacity: 1;
+}
+
+.nav-about::before {
+	background: #007aff;
+}
+
+.nav-work::before {
+	background: #ff9500;
+}
+
+.nav-shop::before {
+	background: #34c759;
 }
 
 .nav-emoji,
 .nav-label {
-	position: absolute;
-	transition: opacity 0.2s ease, transform 0.2s ease;
+	position: relative;
+	z-index: 1;
+}
+
+.nav-emoji,
+.nav-label {
+	transition:
+		opacity 0.2s ease,
+		transform 0.2s ease;
 }
 
 .nav-label {
 	opacity: 0;
-	font-size: 12px;
+	font-size: 15px;
 	font-weight: 600;
 	letter-spacing: 0.08em;
 }
@@ -71,18 +106,6 @@ body {
 
 .nav-item:hover .nav-label {
 	opacity: 1;
-}
-
-.nav-about:hover {
-	background: #007aff;
-}
-
-.nav-work:hover {
-	background: #ff9500;
-}
-
-.nav-shop:hover {
-	background: #34c759;
 }
 
 .landing {
@@ -128,12 +151,37 @@ body {
 		max-width: 360px;
 	}
 
-	.nav-item {
-		width: 90px;
+	.nav-label {
+		font-size: 16px;
 	}
 
 	.hero-title h1 {
 		font-size: clamp(120px, 18vw, 300px);
+	}
+}
+
+@media (max-width: 799px) {
+	.topbar {
+		top: 8px;
+		height: 64px;
+		border-radius: 0;
+		box-shadow:
+			0 -12px 25px rgba(0, 0, 0, 0.03),
+			0 10px 25px rgba(0, 0, 0, 0.08);
+	}
+
+	.navigation {
+		width: 30%;
+		min-width: 180px;
+		max-width: 300px;
+	}
+
+	.nav-item {
+		font-size: 23px;
+	}
+
+	.nav-label {
+		font-size: 14px;
 	}
 }
 
@@ -144,7 +192,6 @@ body {
 	}
 
 	.nav-item {
-		width: 60px;
 		font-size: 23px;
 	}
 }
