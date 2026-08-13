@@ -4,137 +4,204 @@
     box-sizing: border-box;
 }
 
+html,
 body {
-    font-family: Arial, sans-serif;
-    background: #111;
-    color: #fff;
+    width: 100%;
+    height: 100%;
 }
 
-header {
-    padding: 30px 5vw;
+body {
+    background: white;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
 }
 
-nav {
+
+/* =========================
+   TOP BAR
+   ========================= */
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 72px;
+
+    background: white;
+
+    z-index: 100;
+}
+
+.navigation {
+    width: 100%;
+    height: 100%;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+
+    padding: 0 32px;
 }
 
-a {
-    color: inherit;
+.nav-item {
+    color: black;
     text-decoration: none;
-}
 
-.logo {
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.nav-links {
     display: flex;
-    gap: 30px;
-    font-size: 13px;
-    letter-spacing: 1px;
-}
-
-.hero {
-    min-height: 80vh;
-    padding: 15vh 5vw 10vh;
-    display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    font-size: 25px;
+
+    transition: transform 0.2s ease;
 }
 
-.eyebrow {
-    font-size: 12px;
-    letter-spacing: 2px;
+.nav-item:hover {
+    transform: scale(1.15);
+}
+
+
+/* =========================
+   ICONS
+   ========================= */
+
+.mobile-icon {
+    display: block;
+}
+
+.desktop-label {
+    display: none;
+}
+
+
+/* =========================
+   LANDING
+   ========================= */
+
+.landing {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+}
+
+.scene {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   HERO TEXT
+   ========================= */
+
+.hero-title {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 2;
+
+    text-align: center;
+
+    pointer-events: none;
+
+    white-space: nowrap;
+}
+
+.hero-title h1 {
+    font-size: clamp(80px, 15vw, 220px);
+
+    font-weight: 700;
+
+    letter-spacing: -0.08em;
+
+    line-height: 0.8;
+}
+
+.hero-title p {
+    margin-top: 25px;
+
+    font-size: 14px;
+
+    letter-spacing: 0.3em;
+
     opacity: 0.5;
-    margin-bottom: 25px;
-}
-
-.hero h1 {
-    font-size: clamp(70px, 13vw, 180px);
-    line-height: 0.85;
-    letter-spacing: -5px;
-}
-
-.hero-description {
-    margin-top: 40px;
-    max-width: 400px;
-    font-size: 18px;
-    line-height: 1.5;
-    opacity: 0.6;
-}
-
-.section {
-    padding: 120px 5vw;
-}
-
-.section-header {
-    margin-bottom: 60px;
-}
-
-.section-header h2 {
-    font-size: clamp(40px, 6vw, 80px);
-    letter-spacing: -3px;
-}
-
-.projects {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.project-image {
-    aspect-ratio: 1 / 1;
-    background: #222;
-    margin-bottom: 20px;
-}
-
-.project h3 {
-    font-size: 20px;
-    margin-bottom: 8px;
-}
-
-.project p {
-    font-size: 13px;
-    opacity: 0.5;
-}
-
-.shop,
-.about {
-    min-height: 50vh;
-}
-
-.about > p {
-    max-width: 700px;
-    font-size: 28px;
-    line-height: 1.4;
-}
-
-footer {
-    padding: 40px 5vw;
-    opacity: 0.4;
-    font-size: 12px;
 }
 
 
-@media (max-width: 700px) {
+/* =========================
+   DESKTOP
+   ========================= */
 
-    .nav-links {
-        gap: 15px;
+@media (min-width: 800px) {
+
+    .topbar {
+        height: 80px;
     }
 
-    .hero h1 {
-        letter-spacing: -3px;
+    .navigation {
+        padding: 0 40px;
     }
 
-    .projects {
-        grid-template-columns: 1fr;
+    .mobile-icon {
+        display: none;
     }
 
-    .about > p {
-        font-size: 22px;
+    .desktop-label {
+        display: block;
+
+        font-size: 12px;
+
+        letter-spacing: 0.15em;
+    }
+
+    .nav-item {
+        width: auto;
+        height: auto;
+
+        font-size: initial;
+    }
+
+    .navigation {
+        justify-content: space-between;
+    }
+
+    .hero-title h1 {
+        font-size: clamp(120px, 18vw, 300px);
+    }
+
+}
+
+
+/* =========================
+   SMALL PHONES
+   ========================= */
+
+@media (max-width: 400px) {
+
+    .navigation {
+        padding: 0 20px;
+    }
+
+    .nav-item {
+        font-size: 23px;
     }
 
 }
