@@ -35,32 +35,42 @@ body {
 	height: 100%;
 	margin: 0 auto;
 	display: flex;
-	align-items: center;
+	align-items: stretch;
 	justify-content: space-between;
 }
 
 .nav-item {
-	width: 40px;
-	height: 40px;
+	width: 70px;
+	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	color: #000;
 	text-decoration: none;
 	font-size: 25px;
-	transition: transform 0.2s ease;
+	transition: background-color 0.2s ease;
 }
 
-.nav-item:hover {
-	transform: scale(1.12);
-}
-
-.mobile-icon {
+.nav-item span {
 	display: block;
+	transition: filter 0.2s ease, transform 0.2s ease;
 }
 
-.desktop-label {
-	display: none;
+.nav-item:hover span {
+	filter: grayscale(1) brightness(0) invert(1);
+	transform: scale(1.08);
+}
+
+.nav-about:hover {
+	background: #007aff;
+}
+
+.nav-work:hover {
+	background: #ff9500;
+}
+
+.nav-shop:hover {
+	background: #34c759;
 }
 
 .landing {
@@ -103,24 +113,11 @@ body {
 	.navigation {
 		width: 30%;
 		min-width: 240px;
-		max-width: 320px;
-	}
-
-	.mobile-icon {
-		display: none;
-	}
-
-	.desktop-label {
-		display: block;
-		font-size: 13px;
-		font-weight: 500;
-		letter-spacing: -0.01em;
+		max-width: 360px;
 	}
 
 	.nav-item {
-		width: auto;
-		height: auto;
-		font-size: initial;
+		width: 90px;
 	}
 
 	.hero-title h1 {
@@ -135,6 +132,7 @@ body {
 	}
 
 	.nav-item {
+		width: 60px;
 		font-size: 23px;
 	}
 }
